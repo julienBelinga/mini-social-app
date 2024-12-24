@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_social_app/pages/login.dart';
+import 'package:mini_social_app/pages/register.dart';
 import 'package:mini_social_app/theme/lightTheme.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: lightMode,
-      home: Login(),
+      home: Register(),
     );
   }
 }
