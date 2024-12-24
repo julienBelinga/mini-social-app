@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
           padding: const EdgeInsets.all(25),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
 
               // App Logo
               Icon(
@@ -24,7 +24,7 @@ class Login extends StatelessWidget {
                 size: 80,
               ),
 
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
 
               // Email text field
               CustomTextfield(
@@ -33,7 +33,7 @@ class Login extends StatelessWidget {
                 controller: mailController,
               ),
 
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
 
               //password text field
               CustomTextfield(
@@ -42,7 +42,7 @@ class Login extends StatelessWidget {
                 controller: passwordController,
               ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               // Password forgotten link TODO: convert the text into a link
               Row(
@@ -57,12 +57,37 @@ class Login extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
 
               // Login Button
               CustomButton(
                 text: "Login",
                 onTap: () {},
+              ),
+
+              const SizedBox(height: 10),
+
+              // Redirection to Regiter page TODO: make the redirection
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "Don't have an account?",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "Register here",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                  ),
+                ],
               )
 
               // Register page redirection
