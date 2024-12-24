@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
           padding: const EdgeInsets.all(25),
           child: Column(
             children: <Widget>[
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
 
               // App Logo
               Icon(
@@ -114,7 +114,7 @@ class _RegisterState extends State<Register> {
               // register Button
               CustomButton(
                 text: "Register",
-                onTap: () {},
+                onTap: registerUser,
               ),
 
               const SizedBox(height: 10),
