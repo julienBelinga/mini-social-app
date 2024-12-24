@@ -1,12 +1,49 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_social_app/components/custom_button.dart';
 import 'package:mini_social_app/components/custom_textfield.dart';
+import 'package:mini_social_app/helper/helper_function.dart';
 
-class Register extends StatelessWidget {
+class Register extends StatefulWidget {
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
   TextEditingController usernameController = TextEditingController();
+
   TextEditingController mailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   TextEditingController confirmPasswordController = TextEditingController();
+
+  Future<void> registerUser() async {
+    // display a loading circle
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    //compare password
+    if (passwordController.text != confirmPasswordController.text) {
+      // loading circle pop
+      Navigator.pop(context);
+
+      // display error message
+      displayErrorMessageToUser("Passwords don't match", context);
+    } else {
+      //create the user
+      UserCredential? userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: mailController.text, password: passwordController.text);
+
+      //pop the loading circle
+      Navigator.pop(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
