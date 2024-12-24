@@ -17,8 +17,10 @@ class CustomTextfield extends StatelessWidget {
     return TextField(
       controller: this.controller,
       decoration: InputDecoration(
-        hintText: this.textHint,
-      ),
+          hintText: this.textHint,
+          hintStyle: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+          )),
       obscureText: this.obscureText,
     );
   }
