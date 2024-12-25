@@ -71,7 +71,7 @@ class Login extends StatelessWidget {
 
               const SizedBox(height: 10),
 
-              // Redirection to Regiter page TODO: make the redirection
+              // Redirection to Regiter page
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
