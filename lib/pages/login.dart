@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_social_app/components/custom_button.dart';
 import 'package:mini_social_app/components/custom_textfield.dart';
+import 'package:mini_social_app/helper/helper_function.dart';
 
 class Login extends StatelessWidget {
   TextEditingController mailController = TextEditingController();
@@ -9,6 +11,31 @@ class Login extends StatelessWidget {
   final void Function()? onTap;
 
   Login({super.key, required this.onTap});
+
+  void login(BuildContext context) async {
+    // display the loading circle
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    // try sign-in
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: mailController.text,
+        password: passwordController.text,
+      );
+
+      // pop the loading circle
+      if (context.mounted) Navigator.of(context).pop();
+    } on FirebaseException catch (e) {
+      // pop the loading circle
+      Navigator.of(context).pop();
+      displayErrorMessageToUser(e.code, context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +93,7 @@ class Login extends StatelessWidget {
               // Login Button
               CustomButton(
                 text: "Login",
-                onTap: onTap,
+                onTap: () => login(context),
               ),
 
               const SizedBox(height: 10),
