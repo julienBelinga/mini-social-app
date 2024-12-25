@@ -6,6 +6,10 @@ class Login extends StatelessWidget {
   TextEditingController mailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  final void Function()? onTap;
+
+  Login({super.key, required this.onTap});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +66,7 @@ class Login extends StatelessWidget {
               // Login Button
               CustomButton(
                 text: "Login",
-                onTap: () {},
+                onTap: onTap,
               ),
 
               const SizedBox(height: 10),
@@ -78,7 +82,7 @@ class Login extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: onTap,
                     child: Text(
                       "Register here",
                       style: TextStyle(
