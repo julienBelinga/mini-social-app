@@ -15,13 +15,13 @@ class CustomTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: this.controller,
+      controller: controller,
       decoration: InputDecoration(
-          hintText: this.textHint,
+          hintText: textHint,
           hintStyle: TextStyle(
             color: Theme.of(context).colorScheme.secondary,
           )),
-      obscureText: this.obscureText,
+      obscureText: obscureText,
     );
   }
 }

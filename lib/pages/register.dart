@@ -5,6 +5,13 @@ import 'package:mini_social_app/components/custom_textfield.dart';
 import 'package:mini_social_app/helper/helper_function.dart';
 
 class Register extends StatefulWidget {
+  final void Function()? onTap;
+
+  const Register({
+    super.key,
+    required this.onTap,
+  });
+
   @override
   State<Register> createState() => _RegisterState();
 }
@@ -119,7 +126,7 @@ class _RegisterState extends State<Register> {
 
               const SizedBox(height: 10),
 
-              // Redirection to Regiter page TODO: make the redirection
+              // Redirection to Register page
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -130,7 +137,7 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: widget.onTap,
                     child: Text(
                       "Login here",
                       style: TextStyle(
