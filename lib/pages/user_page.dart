@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/components/myDrawer.dart';
 import 'package:mini_social_app/helper/auth_helper.dart';
 
 class UserPage extends StatelessWidget {
@@ -28,6 +29,7 @@ class UserPage extends StatelessWidget {
           ),
         ],
       ),
+      drawer: Mydrawer(),
     );
   }
 }
