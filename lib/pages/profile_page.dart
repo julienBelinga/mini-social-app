@@ -52,11 +52,13 @@ class ProfilePage extends StatelessWidget {
             // extract data
             Map<String, dynamic>? user = snapshot.data!.data();
 
-            return Column(
-              children: [
-                Text("username : ${user!['username']}"),
-                Text("mail: ${user!['email']}"),
-              ],
+            return Center(
+              child: Column(
+                children: [
+                  Text(user!['username']),
+                  Text(user!['email']),
+                ],
+              ),
             );
           }
 
