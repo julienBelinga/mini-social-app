@@ -19,15 +19,6 @@ class UserPage extends StatelessWidget {
         iconTheme: IconThemeData(
           color: Theme.of(context).colorScheme.primary,
         ), // Set drawer icon color to white
-        actions: [
-          IconButton(
-            onPressed: AuthHelper.logout,
-            icon: Icon(
-              Icons.logout,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-        ],
       ),
       drawer: Mydrawer(),
     );

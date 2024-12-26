@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_social_app/components/myDrawer.dart';
 import 'package:mini_social_app/helper/auth_helper.dart';
