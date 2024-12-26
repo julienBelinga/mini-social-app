@@ -1,17 +1,15 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mini_social_app/components/myDrawer.dart';
 import 'package:mini_social_app/helper/auth_helper.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class UserPage extends StatelessWidget {
+  const UserPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Homepage",
+          "Users",
           style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
           ),
@@ -30,7 +28,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Mydrawer(),
     );
   }
 }
