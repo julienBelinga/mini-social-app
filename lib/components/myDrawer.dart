@@ -83,7 +83,7 @@ class Mydrawer extends StatelessWidget {
                 Navigator.pop(context);
 
                 // logout
-                AuthHelper.logout();
+                AuthHelper.logout(context);
               },
             ),
           ),

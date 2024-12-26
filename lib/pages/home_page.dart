@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
         ), // Set drawer icon color to white
         actions: [
           IconButton(
-            onPressed: AuthHelper.logout,
+            onPressed: () => AuthHelper.logout(context),
             icon: Icon(
               Icons.logout,
               color: Theme.of(context).colorScheme.primary,
