@@ -5,8 +5,8 @@ import 'package:mini_social_app/components/custom_textfield.dart';
 import 'package:mini_social_app/helper/helper_function.dart';
 
 class Login extends StatelessWidget {
-  TextEditingController mailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController mailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final void Function()? onTap;
 
