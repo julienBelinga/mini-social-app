@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 
 class AuthHelper {
   static Future<void> logout(BuildContext context) async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.of(context)
-        .pushNamedAndRemoveUntil('/login_register_page', (route) => false);
+    try {
+      await FirebaseAuth.instance.signOut();
+
+      // Redirection après la déconnexion
+      Navigator.of(context).pushReplacementNamed('/login_register_page');
+    } catch (e) {
+      // En cas d'erreur, afficher un message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erreur lors de la déconnexion : $e')),
+      );
+    }
   }
 }
