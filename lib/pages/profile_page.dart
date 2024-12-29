@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(user!['username']),
-                  Text(user!['email']),
+                  Text(user['email']),
                 ],
               ),
             );
