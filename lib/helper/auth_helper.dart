@@ -7,7 +7,7 @@ class AuthHelper {
       await FirebaseAuth.instance.signOut();
 
       // Redirection après la déconnexion
-      Navigator.of(context).pushReplacementNamed('/login_register_page');
+      // Navigator.of(context).pushReplacementNamed('/login_register_page');
     } catch (e) {
       // En cas d'erreur, afficher un message
       ScaffoldMessenger.of(context).showSnackBar(

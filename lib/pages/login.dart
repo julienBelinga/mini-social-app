@@ -30,6 +30,7 @@ class Login extends StatelessWidget {
 
       // pop the loading circle
       if (context.mounted) Navigator.of(context).pop();
+      print('login : sign-in');
     } on FirebaseException catch (e) {
       // pop the loading circle
       Navigator.of(context).pop();
