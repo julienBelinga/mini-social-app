@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/helper/auth_helper.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,9 +20,7 @@ class HomePage extends StatelessWidget {
         ), // Set drawer icon color to white
         actions: [
           IconButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-            },
+            onPressed: () => AuthHelper.logout(context),
             icon: Icon(
               Icons.logout,
               color: Theme.of(context).colorScheme.primary,
