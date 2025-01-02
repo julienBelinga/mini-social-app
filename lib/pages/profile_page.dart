@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ), // Set drawer icon color to white
       ),
-      drawer: const Mydrawer(),
+      drawer: Mydrawer(),
       body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
         future: getUserDetails(),
         builder: (context, snapshot) {
