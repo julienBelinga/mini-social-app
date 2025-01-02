@@ -18,16 +18,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         iconTheme: IconThemeData(
           color: Theme.of(context).colorScheme.primary,
-        ), // Set drawer icon color to white
-        actions: [
-          IconButton(
-            onPressed: () => AuthHelper.logout(context),
-            icon: Icon(
-              Icons.logout,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-        ],
+        ),
       ),
       drawer: Mydrawer(),
     );
