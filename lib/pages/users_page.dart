@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/components/myAppbar.dart';
 import 'package:mini_social_app/components/myDrawer.dart';
 import 'package:mini_social_app/helper/helper_function.dart';
 
@@ -9,19 +10,8 @@ class UsersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Users',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.primary,
-        ),
-      ),
-      drawer: Mydrawer(),
+      appBar: const MyAppbar(title: "U S E R S"),
+      drawer: const Mydrawer(),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('Users').snapshots(),
         builder: (context, snapshot) {

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/components/myAppbar.dart';
 import 'package:mini_social_app/components/myDrawer.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -21,19 +22,8 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(
-        title: Text(
-          "Profile",
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.primary,
-        ), // Set drawer icon color to white
-      ),
-      drawer: Mydrawer(),
+      appBar: const MyAppbar(title: 'P R O F I L E'),
+      drawer: const Mydrawer(),
       body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
         future: getUserDetails(),
         builder: (context, snapshot) {
