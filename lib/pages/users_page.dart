@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/components/myDrawer.dart';
 
 class UsersPage extends StatelessWidget {
   const UsersPage({super.key});
@@ -18,6 +19,7 @@ class UsersPage extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
         ),
       ),
+      drawer: Mydrawer(),
     );
   }
 }
