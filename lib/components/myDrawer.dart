@@ -1,8 +1,17 @@
+
 import 'package:flutter/material.dart';
 import 'package:mini_social_app/helper/auth_helper.dart';
 
 class Mydrawer extends StatelessWidget {
   const Mydrawer({super.key});
+
+  void logout(BuildContext context) {
+    FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      '/', // Navigue vers la racine où AuthPage est monté
+      (Route<dynamic> route) => false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +42,8 @@ class Mydrawer extends StatelessWidget {
                     Navigator.pop(context);
 
                     // navigate to the Home page
-                    Navigator.pushNamed(context, '/home_page');
+                    Navigator.pushReplacementNamed(context, '/home_page');
+
                   },
                 ),
               ),
@@ -49,7 +59,7 @@ class Mydrawer extends StatelessWidget {
                     Navigator.pop(context);
 
                     // navigate to the Profile page
-                    Navigator.pushNamed(context, '/profile_page');
+                    Navigator.pushReplacementNamed(context, '/profile_page');
                   },
                 ),
               ),
@@ -65,7 +75,7 @@ class Mydrawer extends StatelessWidget {
                     Navigator.pop(context);
 
                     // navigate to the Users page
-                    Navigator.pushNamed(context, '/users_page');
+                    Navigator.pushReplacementNamed(context, '/users_page');
                   },
                 ),
               ),
@@ -81,9 +91,8 @@ class Mydrawer extends StatelessWidget {
               onTap: () {
                 // pop the drawer
                 Navigator.pop(context);
-
                 // logout
-                AuthHelper.logout(context);
+                logout(context);
               },
             ),
           ),
