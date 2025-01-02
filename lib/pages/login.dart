@@ -5,8 +5,8 @@ import 'package:mini_social_app/components/custom_textfield.dart';
 import 'package:mini_social_app/helper/helper_function.dart';
 
 class Login extends StatelessWidget {
-  TextEditingController mailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController mailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final void Function()? onTap;
 
@@ -30,6 +30,7 @@ class Login extends StatelessWidget {
 
       // pop the loading circle
       if (context.mounted) Navigator.of(context).pop();
+      print('login : sign-in');
     } on FirebaseException catch (e) {
       // pop the loading circle
       Navigator.of(context).pop();
@@ -40,89 +41,93 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true, // Automatically adjust for keyboard
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(25),
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 100),
+        child: SingleChildScrollView(
+          // Wrap Column in SingleChildScrollView
+          child: Padding(
+            padding: const EdgeInsets.all(25),
+            child: Column(
+              mainAxisSize:
+                  MainAxisSize.min, // Ensure it fits within available space
+              children: <Widget>[
+                const SizedBox(height: 100),
 
-              // App Logo
-              Icon(
-                Icons.person,
-                color: Theme.of(context).colorScheme.inversePrimary,
-                size: 80,
-              ),
+                // App Logo
+                Icon(
+                  Icons.person,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  size: 80,
+                ),
 
-              const SizedBox(height: 50),
+                const SizedBox(height: 50),
 
-              // Email text field
-              CustomTextfield(
-                textHint: "e-mail",
-                obscureText: false,
-                controller: mailController,
-              ),
+                // Email text field
+                CustomTextfield(
+                  textHint: "e-mail",
+                  obscureText: false,
+                  controller: mailController,
+                ),
 
-              const SizedBox(height: 25),
+                const SizedBox(height: 25),
 
-              //password text field
-              CustomTextfield(
-                textHint: "password",
-                obscureText: true,
-                controller: passwordController,
-              ),
+                // Password text field
+                CustomTextfield(
+                  textHint: "password",
+                  obscureText: true,
+                  controller: passwordController,
+                ),
 
-              const SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-              // Password forgotten link TODO: convert the text into a link
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "forgot password ?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 50),
-
-              // Login Button
-              CustomButton(
-                text: "Login",
-                onTap: () => login(context),
-              ),
-
-              const SizedBox(height: 10),
-
-              // Redirection to Regiter page
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: onTap,
-                    child: Text(
-                      "Register here",
+                // Password forgotten link
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "forgot password?",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
                         color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
-                  ),
-                ],
-              )
+                  ],
+                ),
 
-              // Register page redirection
-            ],
+                const SizedBox(height: 50),
+
+                // Login Button
+                CustomButton(
+                  text: "Login",
+                  onTap: () => login(context),
+                ),
+
+                const SizedBox(height: 10),
+
+                // Redirection to Register page
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Text(
+                        "Register here",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

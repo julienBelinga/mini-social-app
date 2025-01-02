@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/helper/auth_helper.dart';
 
 class Mydrawer extends StatelessWidget {
   const Mydrawer({super.key});
@@ -42,6 +43,7 @@ class Mydrawer extends StatelessWidget {
 
                     // navigate to the Home page
                     Navigator.pushReplacementNamed(context, '/home_page');
+
                   },
                 ),
               ),
