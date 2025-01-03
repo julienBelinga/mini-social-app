@@ -34,18 +34,21 @@ class UsersPage extends StatelessWidget {
           // Collect the data
           final users = snapshot.data!.docs;
 
-          return ListView.builder(
-            itemCount: users.length,
-            itemBuilder: (context, index) {
-              //get individual users
-              final user = users[index];
+          return Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: ListView.builder(
+              itemCount: users.length,
+              itemBuilder: (context, index) {
+                //get individual users
+                final user = users[index];
 
-              // display each user
-              return CustomListTile(
-                title: user['username'],
-                subtitle: user['email'],
-              );
-            },
+                // display each user
+                return CustomListTile(
+                  title: user['username'],
+                  subtitle: user['email'],
+                );
+              },
+            ),
           );
         },
       ),

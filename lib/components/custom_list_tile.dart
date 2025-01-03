@@ -18,12 +18,18 @@ class CustomListTile extends StatelessWidget {
         right: 10,
         bottom: 10,
       ),
-      child: ListTile(
-        title: Text(title),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.secondary,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: ListTile(
+          title: Text(title),
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary,
+            ),
           ),
         ),
       ),
