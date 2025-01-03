@@ -11,30 +11,29 @@ Une application sociale construite avec **Flutter** et **Firebase**. Ce projet e
 
 ## Capture d'écran 📸
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 
-  <div style="flex: 1; text-align: center;">
+  <div style="flex: 1; min-width: 200px; text-align: center;">
     <img src="image.png" alt="Login page" width="200">
     <p>Login Page</p>
   </div>
 
-  <div style="flex: 1; text-align: center;">
+  <div style="flex: 1; min-width: 200px; text-align: center;">
     <img src="image-1.png" alt="Home page" width="200">
     <p>Home Page</p>
   </div>
 
-  <div style="flex: 1; text-align: center;">
+  <div style="flex: 1; min-width: 200px; text-align: center;">
     <img src="image-2.png" alt="Profile page" width="200">
     <p>Profile Page</p>
   </div>
 
-  <div style="flex: 1; text-align: center;">
+  <div style="flex: 1; min-width: 200px; text-align: center;">
     <img src="image-3.png" alt="Users page" width="200">
     <p>Users Page</p>
   </div>
 
 </div>
-
 
 ## Installation 🛠️
 
